@@ -1,0 +1,156 @@
+$primary-color: #ff2e63;
+$accent-color: #08d9d6;
+$bg-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+$card-bg: rgba(255, 255, 255, 0.05);
+$text-color: #ffffff;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: $bg-gradient;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: $text-color;
+  padding: 20px;
+}
+
+.shop-container {
+  width: 100%;
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+
+  h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 40px;
+    color: $accent-color;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-shadow: 0 0 10px rgba($accent-color, 0.5);
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+
+    .product-card {
+      background: $card-bg;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+
+      &:hover {
+        transform: translateY(-10px);
+        background: rgba(255, 255, 255, 0.15);
+        border-color: $accent-color;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      h3 {
+        margin-bottom: 10px;
+        font-size: 1.4rem;
+        color: $text-color;
+      }
+
+      p {
+        font-size: 1.1rem;
+        color: $accent-color;
+        margin-bottom: 20px;
+        font-weight: bold;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        background: transparent;
+        color: $accent-color;
+        border: 2px solid $accent-color;
+        border-radius: 30px;
+        cursor: pointer;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: $accent-color;
+          color: #000;
+          box-shadow: 0 0 15px $accent-color;
+        }
+      }
+    }
+  }
+
+  .cart-section {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba($primary-color, 0.3);
+
+    h2 {
+      margin-bottom: 20px;
+      color: $primary-color;
+      font-size: 1.8rem;
+      border-bottom: 1px solid rgba($primary-color, 0.3);
+      padding-bottom: 10px;
+    }
+
+    ul {
+      list-style: none;
+      max-height: 200px;
+      overflow-y: auto;
+      margin-bottom: 20px;
+
+      li {
+        padding: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        display: flex;
+        justify-content: space-between;
+        animation: fadeIn 0.5s ease;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+
+    .total-price {
+      font-size: 1.6rem;
+      font-weight: bold;
+      text-align: right;
+      color: $accent-color;
+      text-shadow: 0 0 5px rgba($accent-color, 0.3);
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: $primary-color;
+  border-radius: 10px;
+}
